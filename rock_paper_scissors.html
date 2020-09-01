@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock, Paper, Scissors</title>
+    <meta chartset = "UTF-8"/>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors Time</h1>
+    <script>
+      let playerScore = 0;
+        let computerScore = 0;
+        function game(){
+            for (let roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++){
+
+            function playerPlay(){
+                let playerPlay = prompt("Choose Rock, Paper, or Scissors; 5 times in total");
+                playerPlay = playerPlay.toLowerCase(); 
+                return playerPlay;
+            }
+            let playerSelection = playerPlay();
+
+            function computerPlay (){
+                let options = ["rock", "paper", "scissors"];
+                return options[Math.floor(Math.random() * options.length)];
+            }
+            let computerSelection = computerPlay();
+
+            function playRound(playerSelection, computerSelection){
+                if (playerSelection === computerSelection) {
+                return "Tie!";
+                } else if (playerSelection === "rock" && computerSelection === "paper") {
+                computerScore++;
+                return "You lose.";
+                } else if (playerSelection === "paper" && computerSelection === "scissors") {
+                computerScore++;
+                return "You lose.";
+                } else if (playerSelection === "scissors" && computerSelection === "rock") {
+                 computerScore++;
+                 return "You lose.";
+                } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                 playerScore++;
+                 return "You win!";
+                } else if (playerSelection === "paper" && computerSelection === "rock") {
+                 playerScore++;
+                return "You win!";
+                } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                playerScore++;
+                 return "You win!";
+                }
+            }
+
+            playRound();
+
+            console.log(playerSelection);
+            console.log(computerSelection);
+
+            let outcome = playRound (playerSelection, computerSelection);
+            console.log(outcome);
+
+            let score = "Your score is " + playerScore + "! " + "Computer score is " + computerScore + "!";
+            console.log(score);
+         }
+         let endGame = function compare(){
+             if (playerScore > computerScore) {return "Stay humble, King"
+             } else if (playerScore < computerScore) {return "Jump in a dark hole and stay there, Peasant"
+             } else if (playerScore === computerScore) {return "Nobody wins..."}
+         }
+
+         let endScore = endGame();
+         console.log(endScore)
+        }
+        game()
+        
+    </script>
+    <p>
+        <var button>
+            <button type ="button">Rock</button>
+            <button type ="button">Paper</button>
+            <button type ="button">Scissors</button>
+        </var>
+    </p>
+</body>
+</html>
